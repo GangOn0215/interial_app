@@ -1,539 +1,559 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festival Interior</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-        font-family: "Pretendard", "Noto Sans KR", sans-serif;
-      }
-
-      /* 툴팁 위치 및 색상 조정 */
-      .fp-tooltip {
-        color: #000 !important;
-        right: 45px !important;
-      }
-
-      /* Hero 섹션(어두운 배경)에서는 흰색 툴팁 */
-      #fp-nav ul li:first-child .fp-tooltip {
-        color: #fff !important;
-      }
-
-      /* 모바일에서 fullpage 네비게이션을 하단으로 */
-      @media (max-width: 768px) {
-        #fp-nav {
-          right: auto !important;
-          left: 50% !important;
-          bottom: 20px !important;
-          top: auto !important;
-          transform: translateX(-50%) !important;
-          width: auto !important;
+        body {
+            font-family: "Pretendard", "Noto Sans KR", sans-serif;
         }
 
-        #fp-nav ul {
-          display: flex !important;
-          flex-direction: row !important;
+        /* 툴팁 위치 및 색상 조정 */
+        .fp-tooltip {
+            color: #000 !important;
+            right: 45px !important;
         }
 
-        #fp-nav ul li {
-          margin: 0 8px !important;
+        /* Hero 섹션(어두운 배경)에서는 흰색 툴팁 */
+        #fp-nav ul li:first-child .fp-tooltip {
+            color: #fff !important;
         }
-      }
+
+        /* 모바일에서 fullpage 네비게이션을 하단으로 */
+        @media (max-width: 768px) {
+            #fp-nav {
+                right: auto !important;
+                left: 50% !important;
+                bottom: 20px !important;
+                top: auto !important;
+                transform: translateX(-50%) !important;
+                width: auto !important;
+            }
+
+            #fp-nav ul {
+                display: flex !important;
+                flex-direction: row !important;
+            }
+
+            #fp-nav ul li {
+                margin: 0 8px !important;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="./css/jquery.fullpage.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css" />
     <link rel="stylesheet" href="./css/index.css" />
-  </head>
+</head>
 
-  <body class="text-gray-800 bg-white">
+<body class="text-gray-800 bg-white">
     <!-- Header -->
-    <header
-      class="fixed w-full top-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
-      >
-        <div class="text-2xl font-semibold tracking-wide text-gray-900">
-          FESTIVAL <span class="text-yellow-600">INTERIOR</span>
+    <header class="fixed w-full top-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <div class="text-2xl font-semibold tracking-wide text-gray-900">
+                FESTIVAL <span class="text-yellow-600">INTERIOR</span>
+            </div>
+            <nav>
+                <ul class="flex space-x-8 text-gray-700 font-medium" id="pageMenu">
+                    <li data-menuanchor="hero">
+                        <a href="#hero" class="hover:text-yellow-600 transition">Home</a>
+                    </li>
+                    <li data-menuanchor="about">
+                        <a href="#about" class="hover:text-yellow-600 transition">About</a>
+                    </li>
+                    <li data-menuanchor="portfolio">
+                        <a href="#portfolio" class="hover:text-yellow-600 transition">Portfolio</a>
+                    </li>
+                    <li data-menuanchor="location">
+                        <a href="#location" class="hover:text-yellow-600 transition">Location</a>
+                    </li>
+                    <li data-menuanchor="service">
+                        <a href="#service" class="hover:text-yellow-600 transition">Service</a>
+                    </li>
+                    <li data-menuanchor="contact">
+                        <a href="#contact" class="hover:text-yellow-600 transition">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-          <ul class="flex space-x-8 text-gray-700 font-medium" id="pageMenu">
-            <li data-menuanchor="hero">
-              <a href="#hero" class="hover:text-yellow-600 transition">Home</a>
-            </li>
-            <li data-menuanchor="about">
-              <a href="#about" class="hover:text-yellow-600 transition"
-                >About</a
-              >
-            </li>
-            <li data-menuanchor="portfolio">
-              <a href="#portfolio" class="hover:text-yellow-600 transition"
-                >Portfolio</a
-              >
-            </li>
-            <li data-menuanchor="service">
-              <a href="#service" class="hover:text-yellow-600 transition"
-                >Service</a
-              >
-            </li>
-            <li data-menuanchor="contact">
-              <a href="#contact" class="hover:text-yellow-600 transition"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
     </header>
 
     <div id="fullpage">
-      <!-- Hero -->
-      <div
-        class="section h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center"
-        style="background-image: url('./main.jpg')"
-      >
-        <div class="bg-black/50 p-10 rounded-xl max-w-2xl mx-auto">
-          <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-            Modern & Minimal Interior
-          </h1>
-          <p class="text-lg mb-8 text-gray-200">
-            세련된 감각과 심플한 라인으로 완성하는 공간의 아름다움.
-          </p>
-          <a
-            href="#portfolio"
-            class="bg-yellow-600 hover:bg-yellow-500 text-white font-medium px-8 py-3 rounded-md transition"
-          >
-            View Portfolio
-          </a>
-        </div>
-      </div>
-
-      <!-- About -->
-      <div class="section">
-        <div class="max-w-5xl mx-auto px-6 py-24 text-center">
-          <h2 class="text-3xl font-bold mb-8 text-gray-900">About Us</h2>
-          <p class="text-gray-600 leading-relaxed text-lg">
-            Festival Interior는 감각적이고 실용적인 디자인을 통해 공간의 가치를
-            극대화합니다.<br />
-            주거, 상업, 오피스 공간 등 다양한 프로젝트를 진행하며, 고객의
-            라이프스타일에 맞춘 맞춤형 인테리어를 제공합니다.
-          </p>
-        </div>
-      </div>
-
-      <!-- Portfolio -->
-      <div class="section bg-gray-50">
-        <div class="py-24">
-          <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
-              Our Works
-            </h2>
-            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-              <div
-                class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden"
-              >
-                <img src="./image1.jpg" class="w-full h-60 object-cover" />
-                <div class="p-4">
-                  <p class="font-semibold text-gray-800">Modern Living Room</p>
-                  <p class="text-gray-500 text-sm mt-1">
-                    화이트톤의 미니멀 거실
-                  </p>
-                </div>
-              </div>
-              <div
-                class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden"
-              >
-                <img src="./image2.jpg" class="w-full h-60 object-cover" />
-                <div class="p-4">
-                  <p class="font-semibold text-gray-800">Luxury Kitchen</p>
-                  <p class="text-gray-500 text-sm mt-1">
-                    고급스러운 라인과 대리석 포인트
-                  </p>
-                </div>
-              </div>
-              <div
-                class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden"
-              >
-                <img src="./image3.jpg" class="w-full h-60 object-cover" />
-                <div class="p-4">
-                  <p class="font-semibold text-gray-800">Cozy Bedroom</p>
-                  <p class="text-gray-500 text-sm mt-1">
-                    따뜻하고 차분한 무드의 침실
-                  </p>
-                </div>
-              </div>
+        <!-- Hero -->
+        <div class="section h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center" style="background-image: url('./images/main.jpg')">
+            <div class="bg-black/50 p-10 rounded-xl max-w-2xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
+                    Modern & Minimal Interior
+                </h1>
+                <p class="text-lg mb-8 text-gray-200">
+                    세련된 감각과 심플한 라인으로 완성하는 공간의 아름다움.
+                </p>
+                <a href="#portfolio"
+                    class="bg-yellow-600 hover:bg-yellow-500 text-white font-medium px-8 py-3 rounded-md transition">
+                    View Portfolio
+                </a>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Services -->
-      <div class="section">
-        <div class="max-w-5xl mx-auto px-6 py-24 text-center">
-          <h2 class="text-3xl font-bold mb-8 text-gray-900">Our Services</h2>
-          <div class="grid sm:grid-cols-3 gap-10 text-gray-700">
-            <div
-              class="p-6 border border-gray-200 rounded-xl hover:shadow-sm transition"
-            >
-              <h3 class="text-xl font-semibold mb-2 text-yellow-600">
-                🏠 Residential
-              </h3>
-              <p class="text-gray-500">
-                아파트, 주택, 빌라 등 개인 공간 인테리어
-              </p>
-            </div>
-            <div
-              class="p-6 border border-gray-200 rounded-xl hover:shadow-sm transition"
-            >
-              <h3 class="text-xl font-semibold mb-2 text-yellow-600">
-                🏢 Commercial
-              </h3>
-              <p class="text-gray-500">카페, 사무실, 매장 등 상업공간 디자인</p>
-            </div>
-            <div
-              class="p-6 border border-gray-200 rounded-xl hover:shadow-sm transition"
-            >
-              <h3 class="text-xl font-semibold mb-2 text-yellow-600">
-                🪑 Styling
-              </h3>
-              <p class="text-gray-500">가구·조명 스타일링 및 공간 리뉴얼</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div
-        class="section section-contact bg-gradient-to-br from-gray-50 to-gray-100 fp-auto-height"
-      >
-        <div class="py-12">
-          <div class="max-w-5xl mx-auto px-6">
-            <!-- 헤더 -->
-            <div class="text-center mb-8">
-              <h2 class="text-3xl font-bold mb-2 text-gray-900">
-                Get In <span class="text-yellow-600">Touch</span>
-              </h2>
-              <p class="text-gray-600">
-                프로젝트 문의나 상담이 필요하시면 언제든 연락주세요
-              </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 items-start">
-              <!-- 왼쪽: Contact Info -->
-              <div class="space-y-6">
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                  <h3 class="text-xl font-bold mb-4 text-gray-900">
-                    Contact Info
-                  </h3>
-
-                  <!-- 전화번호 -->
-                  <div class="flex items-start space-x-3 mb-4">
-                    <div class="bg-yellow-100 p-2 rounded-lg">
-                      <svg
-                        class="w-5 h-5 text-yellow-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-xs text-gray-500 mb-1">Phone</p>
-                      <p class="text-sm text-gray-900 font-semibold">
-                        02-1234-5678
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- 이메일 -->
-                  <div class="flex items-start space-x-3 mb-4">
-                    <div class="bg-yellow-100 p-2 rounded-lg">
-                      <svg
-                        class="w-5 h-5 text-yellow-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-xs text-gray-500 mb-1">Email</p>
-                      <p class="text-sm text-gray-900 font-semibold">
-                        contact@festival-interior.com
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- 주소 -->
-                  <div class="flex items-start space-x-3 mb-4">
-                    <div class="bg-yellow-100 p-2 rounded-lg">
-                      <svg
-                        class="w-5 h-5 text-yellow-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        ></path>
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-xs text-gray-500 mb-1">Address</p>
-                      <p class="text-sm text-gray-900 font-semibold">
-                        서울시 강남구 테헤란로 123
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- 영업시간 -->
-                  <div class="flex items-start space-x-3">
-                    <div class="bg-yellow-100 p-2 rounded-lg">
-                      <svg
-                        class="w-5 h-5 text-yellow-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-xs text-gray-500 mb-1">Business Hours</p>
-                      <p class="text-sm text-gray-900 font-semibold">
-                        평일 09:00 - 18:00
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 소셜 미디어 -->
-                <div class="flex space-x-3 justify-center">
-                  <a
-                    href="#"
-                    class="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-yellow-50 transition"
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-700"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-yellow-50 transition"
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-700"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-yellow-50 transition"
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-700"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <!-- 오른쪽: 문의 폼 -->
-              <div class="bg-white p-6 rounded-2xl shadow-lg">
-                <h3 class="text-xl font-bold mb-4 text-gray-900">
-                  Send Message
-                </h3>
-                <form class="space-y-3">
-                  <!-- 이름 -->
-                  <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-1">
-                      이름 <span class="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="홍길동"
-                      required
-                      class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
-                    />
-                  </div>
-
-                  <!-- 이메일 -->
-                  <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-1">
-                      이메일 <span class="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="example@email.com"
-                      required
-                      class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
-                    />
-                  </div>
-
-                  <!-- 전화번호 -->
-                  <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-1">
-                      연락처
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="010-1234-5678"
-                      class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
-                    />
-                  </div>
-
-                  <!-- 문의 유형 -->
-                  <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-1">
-                      문의 유형
-                    </label>
-                    <select
-                      class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
-                    >
-                      <option>주거 공간 인테리어</option>
-                      <option>상업 공간 인테리어</option>
-                      <option>리모델링</option>
-                      <option>스타일링</option>
-                      <option>기타 문의</option>
-                    </select>
-                  </div>
-
-                  <!-- 문의 내용 -->
-                  <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-1">
-                      문의 내용 <span class="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      placeholder="문의하실 내용을 자세히 작성해주세요"
-                      rows="3"
-                      required
-                      class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition resize-none"
-                    ></textarea>
-                  </div>
-
-                  <!-- 제출 버튼 -->
-                  <button
-                    type="submit"
-                    class="w-full bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition transform hover:-translate-y-1"
-                  >
-                    문의하기
-                    <svg
-                      class="inline-block ml-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <p class="text-xs text-gray-500 text-center mt-2">
-                    영업일 기준 24시간 내에 답변드립니다
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-gray-300 text-center py-4">
-          <p class="text-sm">© 2025 FESTIVAL INTERIOR. All rights reserved.</p>
-        </footer>
-      </div>
+        <!-- About -->
+        <div class="section" style="background-image: url('./images/about.jpg'); background-size: cover">
+            <div class="max-w-5xl mx-auto px-6 py-24 text-center">
+                <h2 class="text-3xl font-bold mb-8 text-rose-950">About <span class="text-yellow-600">Us</span></h2>
+                <p class="text-red-950 leading-relaxed text-lg">
+                    Festival Interior는 감각적이고 실용적인 디자인을 통해 공간의 가치를
+                    극대화합니다.<br />
+                    주거, 상업, 오피스 공간 등 다양한 프로젝트를 진행하며, 고객의
+                    라이프스타일에 맞춘 맞춤형 인테리어를 제공합니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="section bg-gray-50" style="background-image: url(./images/portfolio.jpg);">
+            <div class="py-24">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
+                        <span class="text-yellow-600">Our</span> Works
+                    </h2>
+                    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
+                            <img src="./images/image1.jpg" class="w-full h-60 object-cover" />
+                            <div class="p-4">
+                                <p class="font-semibold text-gray-800">Modern Living Room</p>
+                                <p class="text-gray-500 text-sm mt-1">
+                                    화이트톤의 미니멀 거실
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
+                            <img src="./images/image2.jpg" class="w-full h-60 object-cover" />
+                            <div class="p-4">
+                                <p class="font-semibold text-gray-800">Luxury Kitchen</p>
+                                <p class="text-gray-500 text-sm mt-1">
+                                    고급스러운 라인과 대리석 포인트
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
+                            <img src="./images/image3.jpg" class="w-full h-60 object-cover" />
+                            <div class="p-4">
+                                <p class="font-semibold text-gray-800">Cozy Bedroom</p>
+                                <p class="text-gray-500 text-sm mt-1">
+                                    따뜻하고 차분한 무드의 침실
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class="section bg-white" style="background-image: url(./images/visit.jpg);">
+            <div class="h-screen flex items-center">
+                <div class="max-w-7xl mx-auto px-6 w-full">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <!-- 지도 -->
+                        <div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg" style="height: 500px;">
+                                <div id="map" style="width:100%;height:400px;"></div>
+                            </div>
+                        </div>
+
+                        <!-- 오시는 길 안내 -->
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                                Visit <span class="text-yellow-600">Our Office</span>
+                            </h2>
+                            <p class="text-gray-600 mb-8">
+                                직접 방문하셔서 상담받으실 수 있습니다
+                            </p>
+
+                            <div class="space-y-6">
+                                <!-- 주소 -->
+                                <div class="flex items-start">
+                                    <div
+                                        class="flex-shrink-0 w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 mb-1">주소</h3>
+                                        <p class="text-gray-600 text-sm">서울시 강남구 테헤란로 123</p>
+                                    </div>
+                                </div>
+
+                                <!-- 전화 -->
+                                <div class="flex items-start">
+                                    <div
+                                        class="flex-shrink-0 w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 mb-1">전화</h3>
+                                        <p class="text-gray-600 text-sm">02-1234-5678</p>
+                                    </div>
+                                </div>
+
+                                <!-- 영업시간 -->
+                                <div class="flex items-start">
+                                    <div
+                                        class="flex-shrink-0 w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 mb-1">영업시간</h3>
+                                        <p class="text-gray-600 text-sm">평일 09:00 - 18:00</p>
+                                        <p class="text-gray-500 text-xs mt-1">주말 및 공휴일 휴무</p>
+                                    </div>
+                                </div>
+
+                                <!-- 교통편 -->
+                                <div class="flex items-start">
+                                    <div
+                                        class="flex-shrink-0 w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 mb-1">교통편</h3>
+                                        <p class="text-gray-600 text-sm">지하철 2호선 강남역 3번 출구 도보 5분</p>
+                                        <p class="text-gray-500 text-xs mt-1">주차 가능 (건물 내 지하주차장)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 방문 예약 버튼 -->
+                            <div class="mt-8">
+                                <a href="#contact"
+                                    class="inline-flex items-center bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg transition">
+                                    방문 상담 예약하기
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact + Footer 통합 섹션 -->
+        <div class="section section-contact bg-gradient-to-br from-gray-50 to-gray-100">
+            <!-- Contact Form 영역 -->
+            <div class="min-h-screen flex items-center justify-center py-10">
+                <div class="max-w-3xl mx-auto px-6 w-full">
+                    <!-- Contact 헤더 -->
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
+                            Get In <span class="text-yellow-600">Touch</span>
+                        </h2>
+                        <p class="text-gray-600 text-sm">
+                            프로젝트 문의나 상담이 필요하시면 언제든 연락주세요
+                        </p>
+                    </div>
+
+                    <!-- Contact Form - 중앙 배치 -->
+                    <div class="max-w-xl mx-auto">
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-5 text-center">
+                                Send Message
+                            </h3>
+                            <form class="space-y-3.5">
+                                <!-- Name -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1.5">이름 <span
+                                            class="text-red-500">*</span></label>
+                                    <input type="text" placeholder="홍길동"
+                                        class="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-600 focus:border-transparent outline-none transition" />
+                                </div>
+
+                                <!-- Email -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1.5">이메일 <span
+                                            class="text-red-500">*</span></label>
+                                    <input type="email" placeholder="example@email.com"
+                                        class="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-600 focus:border-transparent outline-none transition" />
+                                </div>
+
+                                <!-- Phone -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1.5">연락처</label>
+                                    <input type="tel" placeholder="010-1234-5678"
+                                        class="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-600 focus:border-transparent outline-none transition" />
+                                </div>
+
+                                <!-- Service Type -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1.5">문의 유형</label>
+                                    <select
+                                        class="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-600 focus:border-transparent outline-none transition">
+                                        <option>주거 공간 인테리어</option>
+                                        <option>상업 공간 인테리어</option>
+                                        <option>오피스 인테리어</option>
+                                        <option>리모델링</option>
+                                        <option>기타 문의</option>
+                                    </select>
+                                </div>
+
+                                <!-- Message -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1.5">문의 내용 <span
+                                            class="text-red-500">*</span></label>
+                                    <textarea rows="3" placeholder="문의하실 내용을 자세히 작성해주세요"
+                                        class="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-600 focus:border-transparent outline-none transition resize-none"></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit"
+                                    class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-semibold py-2.5 rounded-lg transition flex items-center justify-center text-sm mt-4">
+                                    문의하기
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </button>
+
+                                <p class="text-center text-xs text-gray-500 mt-2">
+                                    영업일 기준 24시간 내에 답변드립니다
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fp-auto-height">
+            <!-- Footer 영역 (Contact 섹션 안에 포함) -->
+            <footer class="bg-gray-900 text-gray-300">
+                <div class="w-full">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                            <!-- Company Info -->
+                            <div class="col-span-1 md:col-span-1">
+                                <h3 class="text-white text-lg font-bold mb-3">
+                                    FESTIVAL <span class="text-yellow-600">INTERIOR</span>
+                                </h3>
+                                <p class="text-xs text-gray-400 mb-3">
+                                    감각적이고 실용적인 디자인을 통해 공간의 가치를
+                                    극대화합니다.
+                                </p>
+                                <!-- Social Links -->
+                                <div class="flex space-x-3">
+                                    <a href="#" class="text-gray-400 hover:text-yellow-600 transition">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-yellow-600 transition">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-yellow-600 transition">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Quick Links -->
+                            <div>
+                                <h4 class="text-white font-semibold mb-3 text-sm">Quick Links</h4>
+                                <ul class="space-y-1.5">
+                                    <li>
+                                        <a href="#hero" class="text-xs hover:text-yellow-600 transition">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#about" class="text-xs hover:text-yellow-600 transition">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio"
+                                            class="text-xs hover:text-yellow-600 transition">Portfolio</a>
+                                    </li>
+                                    <li>
+                                        <a href="#location"
+                                            class="text-xs hover:text-yellow-600 transition">Location</a>
+                                    </li>
+                                    <li>
+                                        <a href="#service" class="text-xs hover:text-yellow-600 transition">Service</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Services -->
+                            <div>
+                                <h4 class="text-white font-semibold mb-3 text-sm">Services</h4>
+                                <ul class="space-y-1.5">
+                                    <li>
+                                        <a href="#" class="text-xs hover:text-yellow-600 transition">주거 공간 인테리어</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-xs hover:text-yellow-600 transition">상업 공간 인테리어</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-xs hover:text-yellow-600 transition">오피스 인테리어</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-xs hover:text-yellow-600 transition">리모델링</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-xs hover:text-yellow-600 transition">컨설팅</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Contact Info -->
+                            <div>
+                                <h4 class="text-white font-semibold mb-3 text-sm">Contact</h4>
+                                <ul class="space-y-2 text-xs">
+                                    <li class="flex items-start">
+                                        <svg class="w-4 h-4 text-yellow-600 mr-1.5 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span>서울시 강남구 테헤란로 123</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 text-yellow-600 mr-1.5 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                        <span>02-1234-5678</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 text-yellow-600 mr-1.5 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        <span>contact@festival-interior.com</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 text-yellow-600 mr-1.5 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>평일 09:00 - 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Bar -->
+                        <div class="border-t border-gray-800 pt-4">
+                            <div class="md:flex md:items-center md:justify-between">
+                                <div class="text-xs text-gray-400">
+                                    © 2025 FESTIVAL INTERIOR. All rights reserved.
+                                </div>
+                                <div class="mt-3 md:mt-0">
+                                    <ul class="flex space-x-4 text-xs">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-yellow-600 transition">Privacy
+                                                Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-yellow-600 transition">Terms of
+                                                Service</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="text-gray-400 hover:text-yellow-600 transition">Sitemap</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 
-    <script src="./js/jquery-3.7.1.min.js"></script>
-    <script src="./js/jquery.fullpage.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
 
     <script>
-      $(document).ready(function () {
-        $("#fullpage").fullpage({
-          // 네비게이션
-          menu: "#pageMenu",
-          anchors: ["hero", "about", "portfolio", "service", "contact"],
-          navigation: true,
-          navigationPosition: "right",
-          navigationTooltips: [
-            "Home",
-            "About",
-            "Portfolio",
-            "Service",
-            "Contact",
-          ],
-          showActiveTooltip: true,
+        $(document).ready(function () {
+            $("#fullpage").fullpage({
+                // 네비게이션
+                menu: "#pageMenu",
+                anchors: ["hero", "about", "portfolio", "location", "service", "contact"],
+                navigation: true,
+                navigationPosition: "right",
+                navigationTooltips: [
+                    "Home",
+                    "About",
+                    "Portfolio",
+                    "Location",
+                    "Service",
+                    "Contact",
+                ],
+                showActiveTooltip: true,
 
-          // 스크롤 설정
-          autoScrolling: true,
-          scrollingSpeed: 1000,
-          fitToSection: true,
-          fitToSectionDelay: 600,
+                // 스크롤 설정
+                autoScrolling: true,
+                scrollingSpeed: 1000,
+                fitToSection: true,
+                fitToSectionDelay: 600,
 
-          // 애니메이션
-          easing: "easeInOutCubic",
-          easingcss3: "ease",
+                // 애니메이션
+                easing: "easeInOutCubic",
+                easingcss3: "ease",
 
-          // 반응형 - 모든 화면에서 풀페이지 작동
-          responsiveWidth: 0,
+                // 반응형 - 모든 화면에서 풀페이지 작동
+                responsiveWidth: 0,
 
-          // 기타
-          recordHistory: false,
-          keyboardScrolling: true,
+                // 기타
+                recordHistory: false,
+                keyboardScrolling: true,
 
-          // 콜백
-          afterLoad: function (origin, destination, direction) {
-            console.log("Loaded section: " + destination.index);
-          },
+                // 콜백
+                afterLoad: function (origin, destination, direction) {
+                    console.log("Loaded section: " + destination.index);
+                },
+            });
         });
-      });
     </script>
-  </body>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9kkr8je42i"></script>
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+    </script>
+</body>
+
 </html>
