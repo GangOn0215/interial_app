@@ -1,0 +1,20 @@
+{
+  "name": "interior",
+  "version": "1.0.0",
+  "description": "Father Interial App",
+  "homepage": "https://github.com/GangOn0215/interial_app#readme",
+  "bugs": {
+    "url": "https://github.com/GangOn0215/interial_app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GangOn0215/interial_app.git"
+  },
+  "license": "ISC",
+  "author": "GangOn0215",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
