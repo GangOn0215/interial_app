@@ -6,7 +6,6 @@
 }
 body {
   color: #333;
-  background: #fff;
 }
 
 .header {
@@ -59,6 +58,11 @@ body {
   font-size: 1.2em;
   margin-bottom: 20px;
 }
+
+.about-section {
+  background-color: #FAF9F6;
+}
+
 .btn {
   padding: 10px 25px;
   background: #222;
