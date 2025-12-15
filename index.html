@@ -590,6 +590,22 @@
     });
 </script>
 
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9kkr8je42i"></script>
+
+    <script>
+        var map = new naver.maps.Map("map", {
+            center: new naver.maps.LatLng(35.8741164660319, 128.723356018616),
+            zoom: 15,
+        });
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(35.8741164660319, 128.723356018616),
+            map: map,
+            title: "Festival Interior",
+        });
+    </script>
+
+
 </body>
 
 </html>
