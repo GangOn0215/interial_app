@@ -25,6 +25,14 @@
 
         /* 모바일에서 fullpage 네비게이션을 하단으로 */
         @media (max-width: 768px) {
+            html,
+            body {
+                overflow: auto !important;
+            }
+
+            .fp-section {
+                height: auto !important;
+            }
             #fp-nav {
                 right: auto !important;
                 left: 50% !important;
@@ -521,9 +529,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+    let isFullpageInitialized = false;
+
+    function initFullPage() {
+        const isMobile = window.innerWidth <= 768;
+
+        // PC + 아직 fullpage 안 켜졌을 때
+        if (!isMobile && !isFullpageInitialized) {
             $("#fullpage").fullpage({
-                // 네비게이션
                 menu: "#pageMenu",
                 anchors: [
                     "hero",
@@ -545,44 +558,38 @@
                 ],
                 showActiveTooltip: true,
 
-                // 스크롤 설정
                 autoScrolling: true,
                 scrollingSpeed: 1000,
                 fitToSection: true,
                 fitToSectionDelay: 600,
 
-                // 애니메이션
                 easing: "easeInOutCubic",
                 easingcss3: "ease",
 
-                // 반응형 - 모든 화면에서 풀페이지 작동
-                responsiveWidth: 0,
-
-                // 기타
                 recordHistory: false,
                 keyboardScrolling: true,
 
-                // 콜백
-                afterLoad: function (origin, destination, direction) {
-                    console.log("Loaded section: " + destination.index);
+                afterLoad: function (origin, destination) {
+                    console.log("Loaded section:", destination.index);
                 },
             });
-        });
-    </script>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9kkr8je42i"></script>
 
-    <script>
-        var map = new naver.maps.Map("map", {
-            center: new naver.maps.LatLng(35.8741164660319, 128.723356018616),
-            zoom: 15,
-        });
+            isFullpageInitialized = true;
+        }
 
-        var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(35.8741164660319, 128.723356018616),
-            map: map,
-            title: "Festival Interior",
-        });
-    </script>
+        // 모바일 + fullpage 켜져 있을 때
+        if (isMobile && isFullpageInitialized) {
+            $.fn.fullpage.destroy("all");
+            isFullpageInitialized = false;
+        }
+    }
+
+    $(document).ready(function () {
+        initFullPage();
+        $(window).on("resize", initFullPage);
+    });
+</script>
+
 </body>
 
 </html>
